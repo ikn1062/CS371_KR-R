@@ -1,0 +1,28 @@
+;;;; -*-  Mode: LISP; Syntax: Common-Lisp; Base: 10                          -*-
+;;;; ---------------------------------------------------------------------------
+;;;; File name: project-ontology.meld
+;;;;    System: FIRE
+;;;;    Author: Aryan Jain, Ishaan Narain, Patrick Pynadath
+;;;;   Created: Feburary 20, 2022 09:30:25
+;;;;   Purpose: 371 Project Assignment
+;;;; ---------------------------------------------------------------------------
+;;;;  modified: Sunday, Feburary 27, 2022
+;;;; ---------------------------------------------------------------------------
+
+(in-microtheory FinancialHealthTesRulestMt)
+
+(isa FinancialHealthTesRulestMt Microtheory)
+(comment FinancialHealthTesRulestMt
+  "The FinancialHealthTesRulestMt microtheory is for testing Horn-clause rules,
+   as used via FIRE's query procedure.")
+
+(genlMt FinancialHealthTesRulestMt FinancialHealthTesRulestMt)
+
+;;; Horn clauses are defined here to determine financial health of companies
+
+;;; The financial health of a company is determined based on values of Short-term Liquidity, Long-term Solvency, Profitability, and Utility.
+
+(<== (isa ?Business FinancialHealthTestMt) (and (hasWiFiConnection ?place ?) (canServeJustCaffeine ?place) (allowsLingering ?place)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; End of Code

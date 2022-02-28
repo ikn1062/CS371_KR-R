@@ -1,0 +1,3 @@
+(genls Company-FHT Number)
+-> change to be intersection of Index-IndicatorOrMeasure and/or company
+

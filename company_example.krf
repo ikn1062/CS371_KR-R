@@ -1,0 +1,14 @@
+(in-microtheory CompanyDataMt)
+(comment CompanyDataMt
+ "CompanyDataMt contains some basic facts about Evanston IL for 371 testing.")
+(genMt FinancialHealthTestMt CompanyDataMt)
+
+(genMt CompanyDataMt KioskDataMT)
+
+
+(isa AppleCompany Business)
+(valShortTermLiquidity AppleCompany 3)
+(valLongTermSolvency AppleCompany 3)
+(valProfitability AppleCompany 3)
+(valUtility AppleCompany 3)
+
