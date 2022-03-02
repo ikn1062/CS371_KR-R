@@ -20,8 +20,11 @@
   "FinancialHealthTestMt is a microtheory for testing testing the financial health of a given company.")
 (genlMt FinancialHealthTestMt CompanyDataMt)
 
-(isa Company-FHT Collection)
-(genls Company-FHT Number)
+(isa Company-FHT Predicate)
+(arity Company-FHT 2) 
+(arg1Isa Company-FHT Index-IndicatorOrMeasure) 
+(arg2Isa Company-FHT Business) 
+(genls Company-FHT Index-IndicatorOrMeasure)
 (comment Company-FHT
   "A Company-FHT is a collection that contains the dimensions of financial health of a given company.
 The financial health of a given company includes Short-term Liquidity, Long-term Solvency, Profitability, and Utility.")

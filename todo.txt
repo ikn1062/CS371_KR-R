@@ -1,3 +1,32 @@
 (genls Company-FHT Number)
 -> change to be intersection of Index-IndicatorOrMeasure and/or company
 
+(isa valShortTermLiquidity Predicate)
+-> change predicate to EvaluativePredicate
+
+(evaluate ?BINARY (GreaterThan-UnitValuesFn 0 1))
+
+(evaluate ?SUM2 (plusFn(?SUM (PlusFn 1 2) 3) context = EverythingPSC; facts = all, env, infer; action = Query
+
+--> Below is what we need
+(and (evaluate ?TIMESFN (TimesFn 10 2))
+     (evaluate ?SUM (PlusFn ?TIMESFN 3))
+     (evaluate ?FINAL (TimesFn ?SUM 2)))
+	 
+	 
+	 
+	 --> If thresholds are equal-size steps, divide total by step size and round up
+	 
+	 
+	 (and (evaluate ?TIMESFN (TimesFn 10.5 2))
+     (evaluate ?SUM (PlusFn ?TIMESFN 3))
+     (evaluate ?FINAL (TimesFn ?SUM 2))
+     (evaluate ?METRIC (QuotientFn ?FINAL 25))
+     (evaluate ?FLO (FloorFn ?METRIC))
+	 (evaluate ?LEVEL (PlusFn ?FLO 1)))
+	 
+	 
+	 (and (valShortTermLiquidity AppleCompany ?NUM)
+     (evaluate ?FINAL (PlusFn ?NUM 3)))
+	 --> This gives a 6 as we stored the AppleCompany ShortTermLiquidity as 3
+	 
