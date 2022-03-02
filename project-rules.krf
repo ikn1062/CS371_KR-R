@@ -16,19 +16,19 @@
   "The FinancialHealthTesRulestMt microtheory is for testing Horn-clause rules,
    as used via FIRE's query procedure.")
 
-(genlMt FinancialHealthTesRulestMt FinancialHealthTesRulestMt)
+(genlMt FinancialHealthTestMt FinancialHealthTesRulestMt)
 
 ;;; Horn clauses are defined here to determine financial health of companies
 
 ;;; The financial health of a company is determined based on values of Short-term Liquidity, Long-term Solvency, Profitability, and Utility.
 
-(<== (Company-FHT  ?FHT ?COMPANY_FHT)  	(and (valShortTermLiquidity ?COMPANY_FHT ?STL)
+(<== (companyFHT  ?FHT ?COMPANY_FHT)  	(and (valShortTermLiquidity ?COMPANY_FHT ?STL)
 										(valLongTermSolvency ?COMPANY_FHT ?LTS)
 										(valProfitability ?COMPANY_FHT ?PT)
 										(valUtility ?COMPANY_FHT ?UT)
 										(evaluate ?SUM (PlusFn ?STL ?LTS ?PT ?UT)))
 										(evaluate ?METRIC (QuotientFn ?SUM 4))
 										(evaluate ?FHT (FloorFn ?METRIC)))
-									
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; End of Code

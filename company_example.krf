@@ -7,8 +7,8 @@
 
 
 (isa AppleCompany Business)
-(valShortTermLiquidity AppleCompany 5)
-(valLongTermSolvency AppleCompany 5)
-(valProfitability AppleCompany 1)
-(valUtility AppleCompany 1)
+(valShortTermLiquidity AppleCompany 3)
+(valLongTermSolvency AppleCompany 3)
+(valProfitability AppleCompany 3)
+(valUtility AppleCompany 3)
 
