@@ -12,3 +12,22 @@
 (valProfitability AppleCompany 3)
 (valUtility AppleCompany 3)
 
+(calSTL AppleCompany 3 2 1)
+
+(isa VeryGood1 Index-IndicatorOrMeasure)
+(companyHealth VeryGood1 5)
+
+(isa Good1 Index-IndicatorOrMeasure)
+(companyHealth Good1 4)
+
+(isa Fair1 Index-IndicatorOrMeasure)
+(companyHealth Fair1 3)
+
+(isa Bad1 Index-IndicatorOrMeasure)
+(companyHealth Bad1 2)
+
+(isa VeruBad1 Index-IndicatorOrMeasure)
+(companyHealth VeryBad1 1)
+
+
+

@@ -40,6 +40,11 @@
 
 ;;; Numbers 1 to 5 indicate the health of the company in a certain dimension. For example, 1 pertains to Very Bad and 5 pertains to Very Good.
 
+(isa companyHealth Predicate)
+(arity companyHealth 2)
+(arg1isa companyHealth Index-IndicatorOrMeasure)
+(arg1isa companyHealth Index-IndicatorOrMeasure)
+
 (isa valShortTermLiquidity Predicate)
 (arity valShortTermLiquidity 2)
 (arg1isa valShortTermLiquidity Business)
@@ -59,6 +64,14 @@
 (arity valUtility 2)
 (arg1isa valUtility Business)
 (arg2isa valUtility Number)
+
+(isa calSTL Predicate)
+(arity calSTL 4)
+(arg1isa calSTL Business)
+(arg2isa arg1isa Number)
+(arg3isa calSTL Number)
+(arg4isa arg1isa Number)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; End of Code

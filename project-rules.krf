@@ -26,9 +26,17 @@
 										(valLongTermSolvency ?COMPANY_FHT ?LTS)
 										(valProfitability ?COMPANY_FHT ?PT)
 										(valUtility ?COMPANY_FHT ?UT)
-										(evaluate ?SUM (PlusFn ?STL ?LTS ?PT ?UT)))
+										(evaluate ?SUM (PlusFn ?STL ?LTS ?PT ?UT))
 										(evaluate ?METRIC (QuotientFn ?SUM 4))
-										(evaluate ?FHT (FloorFn ?METRIC)))
+										(evaluate ?VAL (FloorFn ?METRIC))
+										(companyHealth ?FHT ?VAL)))
+
+(<== (valShortTermLiquidity ?COMPANY_FHT ?STL)	(and (calSTL ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
+												(evaluate ?M1 (TimesFn ?NUM1 7))
+												(evaluate ?M2 (TimesFn ?NUM2 3.5))
+												(evaluate ?M3 (TimesFn ?NUM1 1))
+												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3))
+												(evaluate (equals ?STL 5) (greaterThan-UnitValuesFn ?SUM 29))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; End of Code
