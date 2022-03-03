@@ -31,12 +31,19 @@
 										(evaluate ?VAL (FloorFn ?METRIC))
 										(companyHealth ?FHT ?VAL)))
 
-(<== (valShortTermLiquidity ?COMPANY_FHT ?STL)	(and (calSTL ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
-												(evaluate ?M1 (TimesFn ?NUM1 7))
-												(evaluate ?M2 (TimesFn ?NUM2 3.5))
-												(evaluate ?M3 (TimesFn ?NUM1 1))
-												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3))
-												(evaluate (equals ?STL 5) (greaterThan-UnitValuesFn ?SUM 29))))
+(<== (valCalcShortTermLiquidity ?STL ?COMPANY_FHT)	(and (calSTL ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
+												(evaluate ?M1 (TimesFn ?NUM1 14))
+												(evaluate ?M2 (TimesFn ?NUM2 7))
+												(evaluate ?M3 (TimesFn ?NUM3 2))
+												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3 -23))
+												(evaluate ?SUM2 (QuotientFn ?SUM 4.1))
+												(evaluate ?SUM3 (FloorFn ?SUM2))
+												(stlHealth ?STL ?SUM3)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; End of Code
+
+;;; (evaluate ?SUM2 (QuotientFn ?SUM 4.1))
+;;; (evaluate ?SUM3 (FloorFn ?SUM2))
+;;; (stlHealth ?STL ?VAL)
+;;; (valCalcShortTermLiquidity ?SUM3 AppleCompany)

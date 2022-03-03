@@ -26,6 +26,11 @@
 (arg1isa valLongTermSolvency Number)
 (arg2isa valLongTermSolvency Business)
 
+(isa valCalcShortTermLiquidity Predicate)
+(arity valCalcShortTermLiquidity 2)
+(arg1isa valCalcShortTermLiquidity Number)
+(arg2isa valCalcShortTermLiquidity Business)
+
 (genls CompanyFHT Number)
 (comment CompanyFHT
   "A Company-FHT is a collection that contains the dimensions of financial health of a given company.
@@ -43,7 +48,12 @@
 (isa companyHealth Predicate)
 (arity companyHealth 2)
 (arg1isa companyHealth Index-IndicatorOrMeasure)
-(arg1isa companyHealth Index-IndicatorOrMeasure)
+(arg2isa companyHealth Index-IndicatorOrMeasure)
+
+(isa stlHealth Predicate)
+(arity stlHealth 2)
+(arg1isa stlHealth Index-IndicatorOrMeasure)
+(arg2isa stlHealth Index-IndicatorOrMeasure)
 
 (isa valShortTermLiquidity Predicate)
 (arity valShortTermLiquidity 2)
