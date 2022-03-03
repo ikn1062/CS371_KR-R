@@ -22,6 +22,9 @@
 
 ;;; The financial health of a company is determined based on values of Short-term Liquidity, Long-term Solvency, Profitability, and Utility.
 
+;;; The first Horn-clause below calculates the Short-term Liquidity, Long-term Solvency, Profitability, and Utility from the inputs to 
+;;; Calculate company financial health
+
 (<== (companyFHT  ?FHT ?COMPANY_FHT)  	(and (calSTL ?STL ?COMPANY_FHT)
 										(calLTS ?LTS ?COMPANY_FHT)
 										(calPT ?PT ?COMPANY_FHT)
@@ -30,38 +33,53 @@
 										(evaluate ?METRIC (QuotientFn ?SUM 4))
 										(evaluate ?VAL (FloorFn ?METRIC))
 										(companyHealth ?FHT ?VAL)))
+										
+;;; Calculates the Short Term Liquidity of a company given the inputs Current ratio, Net operation cycle, and Sales growth rate
+;;; The Calculation follows the definition in the research paper
 
-(<== (calSTL ?STL ?COMPANY_FHT)	(and (valShortTermLiquidity ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
-												(evaluate ?M1 (TimesFn ?NUM1 14))
-												(evaluate ?M2 (TimesFn ?NUM2 7))
-												(evaluate ?M3 (TimesFn ?NUM3 2))
+(<== (calSTL ?STL ?COMPANY_FHT)	(and (valShortTermLiquidity ?COMPANY_FHT ?CR ?NOC ?S)
+												(evaluate ?M1 (TimesFn ?CR 14))
+												(evaluate ?M2 (TimesFn ?NOC 7))
+												(evaluate ?M3 (TimesFn ?S 2))
 												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3 -23))
 												(evaluate ?SUM2 (QuotientFn ?SUM 4.1))
 												(evaluate ?SUM3 (FloorFn ?SUM2))
 												(stlHealth ?STL ?SUM3)))
+
+;;; Calculates the Long-term solvency of a company given the inputs Equity to assets ratio, Long-term fund to fixed assets ratio, 
+;;; and Times interest earned
+;;; The Calculation follows the definition in the research paper
 												
-(<== (calLTS ?LTS ?COMPANY_FHT)	(and (valLongTermSolvency ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
-												(evaluate ?M1 (TimesFn ?NUM1 14))
-												(evaluate ?M2 (TimesFn ?NUM2 7))
-												(evaluate ?M3 (TimesFn ?NUM3 2))
+(<== (calLTS ?LTS ?COMPANY_FHT)	(and (valLongTermSolvency ?COMPANY_FHT ?ETA ?LFTA ?TIE)
+												(evaluate ?M1 (TimesFn ?ETA 14))
+												(evaluate ?M2 (TimesFn ?LFTA 7))
+												(evaluate ?M3 (TimesFn ?TIE 2))
 												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3 -23))
 												(evaluate ?SUM2 (QuotientFn ?SUM 4.1))
 												(evaluate ?SUM3 (FloorFn ?SUM2))
 												(stlHealth ?LTS ?SUM3)))
+												
+;;; Calculates the profitability of a company given the inputs Return on sales, Return on asset, Return on equity
+;;; The Calculation follows the definition in the research paper
 
-(<== (calPT ?PT ?COMPANY_FHT)	(and (valProfitability ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
-												(evaluate ?M1 (TimesFn ?NUM1 14))
-												(evaluate ?M2 (TimesFn ?NUM2 7))
-												(evaluate ?M3 (TimesFn ?NUM3 2))
+(<== (calPT ?PT ?COMPANY_FHT)	(and (valProfitability ?COMPANY_FHT ?ROS ?ROA ?ROE)
+												(evaluate ?M1 (TimesFn ?ROS 14))
+												(evaluate ?M2 (TimesFn ?ROA 7))
+												(evaluate ?M3 (TimesFn ?ROE 2))
 												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3 -23))
 												(evaluate ?SUM2 (QuotientFn ?SUM 4.1))
 												(evaluate ?SUM3 (FloorFn ?SUM2))
 												(stlHealth ?PT ?SUM3)))
+												
+;;; Calculates the Utility of a company given the inputs Total asset turnover, Account receivable turnover, Inventory turnover, 
+;;; and Fixed asset turnover
+;;; The Calculation follows the definition in the research paper
 
-(<== (calUT ?UT ?COMPANY_FHT)	(and (valUtility ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
-												(evaluate ?M1 (TimesFn ?NUM1 14))
-												(evaluate ?M2 (TimesFn ?NUM2 7))
-												(evaluate ?M3 (TimesFn ?NUM3 2))
+(<== (calUT ?UT ?COMPANY_FHT)	(and (valUtility ?COMPANY_FHT ?TATO ?ARTO ?INVTO ?FATO)
+												(evaluate ?M1 (TimesFn ?TATO 14))
+												(evaluate ?M2 (TimesFn ?ARTO 7))
+												(evaluate ?M3 (TimesFn ?INVTO 2))
+												(evaluate ?M3 (TimesFn ?FATO 0))
 												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3 -23))
 												(evaluate ?SUM2 (QuotientFn ?SUM 4.1))
 												(evaluate ?SUM3 (FloorFn ?SUM2))

@@ -20,7 +20,6 @@
   "FinancialHealthTestMt is a microtheory for testing testing the financial health of a given company.")
 (genlMt FinancialHealthTestMt CompanyDataMt)
 
-
 (isa companyFHT Predicate)
 (arity companyFHT 2)
 (arg1isa companyFHT Number)
@@ -30,25 +29,22 @@
 (comment CompanyFHT
   "A Company-FHT is a collection that contains the dimensions of financial health of a given company.
 	The financial health of a given company includes Short-term Liquidity, Long-term Solvency, Profitability, and Utility.")
-
-;;; Any new predicates you need to define should go here.
-;;; Every new predicate needs to have an isa statement saying what it
-;;; is an instance of, an arity statement, argIsa statements declaring the
-;;; types of its arguments, a genlPreds statement connecting it into the predicate
-;;; hiearchy, and a comment describing in English its intended meaning.
-
-
-;;; Numbers 1 to 5 indicate the health of the company in a certain dimension. For example, 1 pertains to Very Bad and 5 pertains to Very Good.
+	
+;;; Company health contains a dictionary that compares a value to an indicator, i.e. 1 - Very Bad, 5 - Very Good
 
 (isa companyHealth Predicate)
 (arity companyHealth 2)
 (arg1isa companyHealth Index-IndicatorOrMeasure)
 (arg2isa companyHealth Index-IndicatorOrMeasure)
 
+;;; stlHealth contains a dictionary for calculations of company financial health metrics
+
 (isa stlHealth Predicate)
 (arity stlHealth 2)
 (arg1isa stlHealth Index-IndicatorOrMeasure)
 (arg2isa stlHealth Index-IndicatorOrMeasure)
+
+;;; Defines the Short Term Liquidity of a company given the inputs Current ratio, Net operation cycle, and Sales growth rate
 
 (isa valShortTermLiquidity Predicate)
 (arity valShortTermLiquidity 4)
@@ -57,12 +53,17 @@
 (arg3isa valShortTermLiquidity Number)
 (arg4isa valShortTermLiquidity Number)
 
+;;; Defines the Long-term solvency of a company given the inputs Equity to assets ratio, Long-term fund to fixed assets ratio, 
+;;; and Times interest earned
+
 (isa valLongTermSolvency Predicate)
 (arity valLongTermSolvency 4)
 (arg1isa valLongTermSolvency Business)
 (arg2isa valLongTermSolvency Number)
 (arg3isa valLongTermSolvency Number)
 (arg4isa valLongTermSolvency Number)
+
+;;; Defines the profitability of a company given the inputs Return on sales, Return on asset, Return on equity
 
 (isa valProfitability Predicate)
 (arity valProfitability 4)
@@ -71,12 +72,15 @@
 (arg3isa valProfitability Number)
 (arg4isa valProfitability Number)
 
+;;; Defines the Utility of a company given the inputs Total asset turnover, Account receivable turnover, Inventory turnover, 
+
 (isa valUtility Predicate)
-(arity valUtility 4)
+(arity valUtility 5)
 (arg1isa valUtility Business)
 (arg2isa valUtility Number)
 (arg3isa valUtility Number)
 (arg4isa valUtility Number)
+(arg5isa valUtility Number)
 
 (isa calSTL Predicate)
 (arity calSTL 2)
