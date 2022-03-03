@@ -58,24 +58,45 @@
 (arg4isa valShortTermLiquidity Number)
 
 (isa valLongTermSolvency Predicate)
-(arity valLongTermSolvency 2)
+(arity valLongTermSolvency 4)
 (arg1isa valLongTermSolvency Business)
 (arg2isa valLongTermSolvency Number)
+(arg3isa valLongTermSolvency Number)
+(arg4isa valLongTermSolvency Number)
 
 (isa valProfitability Predicate)
-(arity valProfitability 2)
+(arity valProfitability 4)
 (arg1isa valProfitability Business)
 (arg2isa valProfitability Number)
+(arg3isa valProfitability Number)
+(arg4isa valProfitability Number)
 
 (isa valUtility Predicate)
-(arity valUtility 2)
+(arity valUtility 4)
 (arg1isa valUtility Business)
 (arg2isa valUtility Number)
+(arg3isa valUtility Number)
+(arg4isa valUtility Number)
 
 (isa calSTL Predicate)
 (arity calSTL 2)
 (arg1isa calSTL Number)
 (arg2isa calSTL Business)
+
+(isa calLTS Predicate)
+(arity calLTS 2)
+(arg1isa calLTS Number)
+(arg2isa calLTS Business)
+
+(isa calPT Predicate)
+(arity calPT 2)
+(arg1isa calPT Number)
+(arg2isa calPT Business)
+
+(isa calUT Predicate)
+(arity calUT 2)
+(arg1isa calUT Number)
+(arg2isa calUT Business)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -23,9 +23,9 @@
 ;;; The financial health of a company is determined based on values of Short-term Liquidity, Long-term Solvency, Profitability, and Utility.
 
 (<== (companyFHT  ?FHT ?COMPANY_FHT)  	(and (calSTL ?STL ?COMPANY_FHT)
-										(valLongTermSolvency ?COMPANY_FHT ?LTS)
-										(valProfitability ?COMPANY_FHT ?PT)
-										(valUtility ?COMPANY_FHT ?UT)
+										(calLTS ?LTS ?COMPANY_FHT)
+										(calPT ?PT ?COMPANY_FHT)
+										(calUT ?UT ?COMPANY_FHT)
 										(evaluate ?SUM (PlusFn ?STL ?LTS ?PT ?UT))
 										(evaluate ?METRIC (QuotientFn ?SUM 4))
 										(evaluate ?VAL (FloorFn ?METRIC))
@@ -39,6 +39,33 @@
 												(evaluate ?SUM2 (QuotientFn ?SUM 4.1))
 												(evaluate ?SUM3 (FloorFn ?SUM2))
 												(stlHealth ?STL ?SUM3)))
+												
+(<== (calLTS ?LTS ?COMPANY_FHT)	(and (valLongTermSolvency ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
+												(evaluate ?M1 (TimesFn ?NUM1 14))
+												(evaluate ?M2 (TimesFn ?NUM2 7))
+												(evaluate ?M3 (TimesFn ?NUM3 2))
+												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3 -23))
+												(evaluate ?SUM2 (QuotientFn ?SUM 4.1))
+												(evaluate ?SUM3 (FloorFn ?SUM2))
+												(stlHealth ?LTS ?SUM3)))
+
+(<== (calPT ?PT ?COMPANY_FHT)	(and (valProfitability ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
+												(evaluate ?M1 (TimesFn ?NUM1 14))
+												(evaluate ?M2 (TimesFn ?NUM2 7))
+												(evaluate ?M3 (TimesFn ?NUM3 2))
+												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3 -23))
+												(evaluate ?SUM2 (QuotientFn ?SUM 4.1))
+												(evaluate ?SUM3 (FloorFn ?SUM2))
+												(stlHealth ?PT ?SUM3)))
+
+(<== (calUT ?UT ?COMPANY_FHT)	(and (valUtility ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
+												(evaluate ?M1 (TimesFn ?NUM1 14))
+												(evaluate ?M2 (TimesFn ?NUM2 7))
+												(evaluate ?M3 (TimesFn ?NUM3 2))
+												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3 -23))
+												(evaluate ?SUM2 (QuotientFn ?SUM 4.1))
+												(evaluate ?SUM3 (FloorFn ?SUM2))
+												(stlHealth ?UT ?SUM3)))												
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; End of Code
