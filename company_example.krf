@@ -7,12 +7,11 @@
 
 
 (isa AppleCompany Business)
-(valShortTermLiquidity AppleCompany 3)
 (valLongTermSolvency AppleCompany 3)
 (valProfitability AppleCompany 3)
 (valUtility AppleCompany 3)
 
-(calSTL AppleCompany 1 3 2)
+(valShortTermLiquidity AppleCompany 1 3 2)
 
 (isa VeryGood1 Index-IndicatorOrMeasure)
 (companyHealth VeryGood1 5)

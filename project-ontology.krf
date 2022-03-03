@@ -23,13 +23,8 @@
 
 (isa companyFHT Predicate)
 (arity companyFHT 2)
-(arg1isa valLongTermSolvency Number)
-(arg2isa valLongTermSolvency Business)
-
-(isa valCalcShortTermLiquidity Predicate)
-(arity valCalcShortTermLiquidity 2)
-(arg1isa valCalcShortTermLiquidity Number)
-(arg2isa valCalcShortTermLiquidity Business)
+(arg1isa companyFHT Number)
+(arg2isa companyFHT Business)
 
 (genls CompanyFHT Number)
 (comment CompanyFHT
@@ -56,9 +51,11 @@
 (arg2isa stlHealth Index-IndicatorOrMeasure)
 
 (isa valShortTermLiquidity Predicate)
-(arity valShortTermLiquidity 2)
+(arity valShortTermLiquidity 4)
 (arg1isa valShortTermLiquidity Business)
 (arg2isa valShortTermLiquidity Number)
+(arg3isa valShortTermLiquidity Number)
+(arg4isa valShortTermLiquidity Number)
 
 (isa valLongTermSolvency Predicate)
 (arity valLongTermSolvency 2)
@@ -76,11 +73,9 @@
 (arg2isa valUtility Number)
 
 (isa calSTL Predicate)
-(arity calSTL 4)
-(arg1isa calSTL Business)
-(arg2isa arg1isa Number)
-(arg3isa calSTL Number)
-(arg4isa arg1isa Number)
+(arity calSTL 2)
+(arg1isa calSTL Number)
+(arg2isa calSTL Business)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

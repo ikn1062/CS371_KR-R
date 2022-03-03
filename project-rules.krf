@@ -22,7 +22,7 @@
 
 ;;; The financial health of a company is determined based on values of Short-term Liquidity, Long-term Solvency, Profitability, and Utility.
 
-(<== (companyFHT  ?FHT ?COMPANY_FHT)  	(and (valShortTermLiquidity ?COMPANY_FHT ?STL)
+(<== (companyFHT  ?FHT ?COMPANY_FHT)  	(and (calSTL ?STL ?COMPANY_FHT)
 										(valLongTermSolvency ?COMPANY_FHT ?LTS)
 										(valProfitability ?COMPANY_FHT ?PT)
 										(valUtility ?COMPANY_FHT ?UT)
@@ -31,7 +31,7 @@
 										(evaluate ?VAL (FloorFn ?METRIC))
 										(companyHealth ?FHT ?VAL)))
 
-(<== (valCalcShortTermLiquidity ?STL ?COMPANY_FHT)	(and (calSTL ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
+(<== (calSTL ?STL ?COMPANY_FHT)	(and (valShortTermLiquidity ?COMPANY_FHT ?NUM1 ?NUM2 ?NUM3)
 												(evaluate ?M1 (TimesFn ?NUM1 14))
 												(evaluate ?M2 (TimesFn ?NUM2 7))
 												(evaluate ?M3 (TimesFn ?NUM3 2))
