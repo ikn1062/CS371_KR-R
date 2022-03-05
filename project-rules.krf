@@ -25,7 +25,7 @@
 ;;; The first Horn-clause below calculates the Short-term Liquidity, Long-term Solvency, Profitability, and Utility from the inputs to 
 ;;; Calculate company financial health
 
-(<== (companyFHT  ?FHT ?COMPANY_FHT)  	(and (calSTL ?STL ?COMPANY_FHT)
+(<== (companyFHT ?FHT ?COMPANY_FHT)  	(and (calSTL ?STL ?COMPANY_FHT)
 										(calLTS ?LTS ?COMPANY_FHT)
 										(calPT ?PT ?COMPANY_FHT)
 										(calUT ?UT ?COMPANY_FHT)
@@ -79,8 +79,8 @@
 												(evaluate ?M1 (TimesFn ?TATO 14))
 												(evaluate ?M2 (TimesFn ?ARTO 7))
 												(evaluate ?M3 (TimesFn ?INVTO 2))
-												(evaluate ?M3 (TimesFn ?FATO 0))
-												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3 -23))
+												(evaluate ?M4 (TimesFn ?FATO 0))
+												(evaluate ?SUM (PlusFn ?M1 ?M2 ?M3 ?M4 -23))
 												(evaluate ?SUM2 (QuotientFn ?SUM 4.1))
 												(evaluate ?SUM3 (FloorFn ?SUM2))
 												(stlHealth ?UT ?SUM3)))												
