@@ -87,9 +87,3 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; End of Code
-
-;;; (evaluate ?SUM2 (QuotientFn ?SUM 4.1))
-;;; (evaluate ?SUM3 (FloorFn ?SUM2))
-;;; (stlHealth ?STL ?VAL)
-;;; (valCalcShortTermLiquidity ?SUM3 AppleCompany)
-;;; 1 3 2 traverse to see where wrong

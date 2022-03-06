@@ -73,6 +73,7 @@
 (arg4isa valProfitability Number)
 
 ;;; Defines the Utility of a company given the inputs Total asset turnover, Account receivable turnover, Inventory turnover, 
+;;; Fixed Asset Turnover
 
 (isa valUtility Predicate)
 (arity valUtility 5)
@@ -101,6 +102,38 @@
 (arity calUT 2)
 (arg1isa calUT Number)
 (arg2isa calUT Business)
+
+;;; Acts as a dictionary for company health
+
+(isa VeryGood1 Index-IndicatorOrMeasure)
+(companyHealth VeryGood1 5)
+
+(isa Good1 Index-IndicatorOrMeasure)
+(companyHealth Good1 4)
+
+(isa Fair1 Index-IndicatorOrMeasure)
+(companyHealth Fair1 3)
+
+(isa Bad1 Index-IndicatorOrMeasure)
+(companyHealth Bad1 2)
+
+(isa VeruBad1 Index-IndicatorOrMeasure)
+(companyHealth VeryBad1 1)
+
+;;; Acts as a dictionary for calculating health of company metrics
+
+(stlHealth 1 0)
+(stlHealth 1 1)
+(stlHealth 2 2)
+(stlHealth 2 3)
+(stlHealth 3 4)
+(stlHealth 3 5)
+(stlHealth 3 6)
+(stlHealth 4 7)
+(stlHealth 5 8)
+(stlHealth 5 9)
+(stlHealth 5 10)
+(stlHealth 5 11)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

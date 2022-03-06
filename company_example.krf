@@ -14,38 +14,15 @@
 (valShortTermLiquidity AppleCompany 1 3 2)
 (valLongTermSolvency AppleCompany 3 1 1)
 (valProfitability AppleCompany 1 3 3)
-(valUtility AppleCompany 3 1 2)
+(valUtility AppleCompany 3 1 2 1)
 
-;;; Acts as a dictionary for company health
+(isa AmazonCompany Business)
 
-(isa VeryGood1 Index-IndicatorOrMeasure)
-(companyHealth VeryGood1 5)
+(valShortTermLiquidity AmazonCompany 3 2 3)
+(valLongTermSolvency AmazonCompany 3 2 2)
+(valProfitability AmazonCompany 3 3 3)
+(valUtility AmazonCompany 2 3 1 2)
 
-(isa Good1 Index-IndicatorOrMeasure)
-(companyHealth Good1 4)
 
-(isa Fair1 Index-IndicatorOrMeasure)
-(companyHealth Fair1 3)
-
-(isa Bad1 Index-IndicatorOrMeasure)
-(companyHealth Bad1 2)
-
-(isa VeruBad1 Index-IndicatorOrMeasure)
-(companyHealth VeryBad1 1)
-
-;;; Acts as a dictionary for calculating health of company metrics
-
-(stlHealth 1 0)
-(stlHealth 1 1)
-(stlHealth 2 2)
-(stlHealth 2 3)
-(stlHealth 3 4)
-(stlHealth 3 5)
-(stlHealth 3 6)
-(stlHealth 4 7)
-(stlHealth 5 8)
-(stlHealth 5 9)
-(stlHealth 5 10)
-(stlHealth 5 11)
 
 
